@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue FrontEnd Example</title>
+  <script src="https://unpkg.com/vue@3.3.13/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+  <div id="root">
+    <div class="header">
+    <h1>{{title}}</h1>
+    </div>
+    <div class="left">
+      <p>There are {{tickets === 0 ? "no" : tickets}} left</p>
+    </div>
+    <div class="right">
+      <p>{{image}}</p>
+    </div>
+  </div>
+
+
+
+  <script src="./main.js"></script>
+  <script>
+    const mountedApp = app.mount('#root') // mount the client app
+  </script>
+</body>
+
+</html>
