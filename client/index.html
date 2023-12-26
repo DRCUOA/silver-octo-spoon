@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue FrontEnd Example</title>
+  <title>Vue Leaning Project</title>
   <script src="https://unpkg.com/vue@3.3.13/dist/vue.global.js"></script>
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
-  <div id="root">
+  <div id="app" class="grid-container">
     <div class="header">
     <h1>{{title}}</h1>
+      
     </div>
     <div class="left">
-      <p>There are {{tickets === 0 ? "no" : tickets}} left</p>
+      <p v-if="tickets === 0">Sold Out!</p>
+      <p v-else-if="tickets === 15">Hurry up! Only {{tickets}} ticket left!</p>
+      <p v-else>On sale now</p>
+      <ul>
+        <li v-for="(detail, index) in details" :key="detail">{{detail}}</li>
+      </ul>
+      <button @click="cart++">Buy Ticket</button>
+    </div>
+    <div class="cart">
+      <p>Tickets in Cart: {{cart}}</p>
     </div>
     <div class="right">
-      <p>{{image}}</p>
+      <img :src="image" alt="image" :width="tickets *4">
     </div>
   </div>
 
@@ -25,7 +35,7 @@
 
   <script src="./main.js"></script>
   <script>
-    const mountedApp = app.mount('#root') // mount the client app
+    const mountedApp = app.mount('#app') // mount the client app
   </script>
 </body>
 
